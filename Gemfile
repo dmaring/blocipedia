@@ -37,6 +37,7 @@ source 'https://rubygems.org'
 
  group :development do
    gem 'listen', '~> 3.0.5'
+   gem 'pry-rails'
  end
 
  group :development, :test do
