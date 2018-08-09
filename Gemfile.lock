@@ -99,6 +99,8 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     puma (3.11.4)
+    pundit (2.0.0)
+      activesupport (>= 3.0.0)
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -201,6 +203,7 @@ DEPENDENCIES
   pg
   pry-rails
   puma (~> 3.0)
+  pundit
   rails (~> 5.1.2)
   rspec-rails
   sass-rails (~> 5.0)

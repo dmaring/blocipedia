@@ -3,7 +3,15 @@
     <div class="col-md-8">
       <div class="card" style="height: 600px">
         <div class="card-header">
-          <h3><%= @wiki.title %></h3>
+          <h3>
+            <%= @wiki.title %>
+            <% if @wiki.private == true %>
+                <%= image_tag "icons/lock-locked-4x.png" %>
+              <% else %>
+            <%= image_tag "icons/lock-unlocked-4x.png" %>
+          <% end %>
+        </h3>
+          <small><%= "Last updated by #{User.getUserByID(@wiki.user_id)}" %></small>
         </div>
         <div class="card-body">
           <p><%= @wiki.body %></p>

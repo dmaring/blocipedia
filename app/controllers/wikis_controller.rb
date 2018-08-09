@@ -16,6 +16,7 @@ class WikisController < ApplicationController
     @wiki.assign_attributes(wiki_params)
     @wiki.user_id = current_user.id
 
+    authorize @wiki
     if @wiki.save
 
       flash[:notice] = "Wiki was saved."
@@ -30,6 +31,7 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
   end
 
   def update
@@ -39,7 +41,7 @@ class WikisController < ApplicationController
     # @wiki.private = params[:wiki][:private]
     @wiki.assign_attributes(wiki_params)
     @wiki.user_id = current_user.id
-
+    authorize @wiki
     if @wiki.save
       flash[:notice] = "Post was updated."
       redirect_to wiki_path(@wiki)
@@ -52,6 +54,7 @@ class WikisController < ApplicationController
   def destroy
     @wiki = Wiki.find(params[:id])
     # we call destroy on @post, if that call is successufl, we set a flash message and redirect the user to the posts index view. if destroy fails then we redirect the user to the show view using render :show
+    authorize @wiki
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
       redirect_to(wikis_path)

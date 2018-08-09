@@ -46,5 +46,6 @@ source 'https://rubygems.org'
 
  gem 'bootstrap'
 
-
  gem 'devise'
+
+ gem 'pundit'
