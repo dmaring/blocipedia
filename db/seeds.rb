@@ -5,26 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'random_data'
+require 'faker'
 
 # Create Random User
-randomUser = User.create!(
-  email: "randomuser@example.com",
-  password: "password"
+20.times do
+  User.create!(
+  email: Faker::Internet.email,
+  password: "password",
+  role: [:standard, :premium, :admin].sample
 )
+end
 
 
 50.times do
 # #1
   Wiki.create!(
 # #2
-    title:  RandomData.random_sentence,
-    body:   RandomData.random_paragraph,
-    private: false,
-    user_id: randomUser.id,
+    title:  Faker::GameOfThrones.quote,
+    body:   Faker::Lorem.paragraph(2),
+    private: [:true, :false].sample,
+    user_id: User.all.sample.id,
   )
 end
 Wikis = Wiki.all
+Users = User.all
 
 puts "Seed finished"
 puts "#{Wiki.count} wikis created"
+puts "#{Users.count} users created"
