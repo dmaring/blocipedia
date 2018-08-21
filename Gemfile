@@ -51,3 +51,7 @@ source 'https://rubygems.org'
  gem 'pundit'
 
  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+ gem 'figaro', '1.0'
+
+ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'

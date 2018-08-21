@@ -10,7 +10,7 @@
       <%= f.text_area :body, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.check_box :private %>
+      <%= f.check_box :private, disabled: !premium_user? %>
       <%= f.label :private %>
     </div>
 

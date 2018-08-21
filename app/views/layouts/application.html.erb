@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="https://checkout.stripe.com/checkout.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -20,6 +21,9 @@
           <% if user_signed_in? %>
         <span class="navbar-text">
           <small>Hello, <%= current_user.email %>!</small>
+          <% if premium_user? %>
+          <strong> PREMIUM MEMBER </strong>
+          <% end %>
         </span>
         <li class="nav-item">
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %>
