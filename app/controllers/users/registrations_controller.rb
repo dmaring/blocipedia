@@ -38,6 +38,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  #DELETE /resource/down_grade
+  def down_grade
+    # user = User.find_by(email: current_user.email)
+    current_user.standard!
+    flash[:alert] = "Your account has been downgraded to STANDARD."
+    redirect_to(request.referrer || root_path)
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

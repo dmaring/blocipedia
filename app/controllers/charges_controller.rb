@@ -22,8 +22,9 @@ class ChargesController < ApplicationController
 
     if charge["status"] == "succeeded"
       flash[:notice] = "Your account has been upgraded to Premium."
-      user = User.find_by(email: current_user.email)
-      user.premium!
+      # user = User.find_by(email: current_user.email)
+      # user.premium!
+      current_user.premium!
 
 
     else
