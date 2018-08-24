@@ -43,11 +43,4 @@ class ChargesController < ApplicationController
       redirect_to root_path
   end
 
-  def destroy
-    user = User.find_by(email: current_user.email)
-    user.standard!
-    flash[:alert] = "Your account has been downgraded to STANDARD."
-    redirect_to(request.referrer || root_path)
-  end
-
 end
