@@ -8,8 +8,8 @@
             <% if @wiki.private == true %>
                 <%= image_tag "icons/lock-locked-4x.png" %>
               <% else %>
-            <%= image_tag "icons/lock-unlocked-4x.png" %>
-          <% end %>
+                <%= image_tag "icons/lock-unlocked-4x.png" %>
+            <% end %>
         </h3>
           <small><%= "Last updated by #{User.getUserByID(@wiki.user_id)}" %></small>
         </div>

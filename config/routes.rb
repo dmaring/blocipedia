@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :wikis
-  resources :charges, only: [:new, :create, :destroy]
+  resources :charges, only: [:new, :create]
 
   devise_scope :user do
     post "/users/down_grade" => "users/registrations#down_grade"

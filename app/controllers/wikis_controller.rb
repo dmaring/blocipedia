@@ -1,6 +1,10 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.all
+    if current_user.admin?
+      @wikis= Wiki.admin_scope
+    else
+      @wikis = Wiki.standard_scope(current_user)
+    end
   end
 
   def show

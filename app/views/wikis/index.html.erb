@@ -10,7 +10,11 @@
           <tbody>
             <% @wikis.each do |wiki| %>
             <tr>
-              <td colspan="2"><%= link_to wiki.title, wiki_path(wiki.id) %></td>
+              <td colspan="2"><%= link_to wiki.title, wiki_path(wiki.id) %>
+                <% if wiki.private == true %>
+                    <%= image_tag "icons/lock-locked-2x.png" %>
+                <% end %>
+              </td>
               <td><%= link_to "Edit", edit_wiki_path(wiki.id), class: "card-link" %></td>
               <td><%= link_to "Delete", wiki, method: :delete, class: "card-link", data: { confirm: 'Are you sure you want to delete this Wiki?' } %></td>
             </tr>

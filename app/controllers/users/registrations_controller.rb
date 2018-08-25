@@ -41,7 +41,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #DELETE /resource/down_grade
   def down_grade
     # user = User.find_by(email: current_user.email)
+    # alert user that all private wikis will become private
+
     current_user.standard!
+    # find all articles owned by user and marked private
+    Wiki.where(user_id: current_user.id).find_each do |wiki|
+      # replace those articles with private == false
+      if wiki.private = "true"
+         wiki.update(private: "false")
+      end
+    end
+
+
     flash[:alert] = "Your account has been downgraded to STANDARD."
     redirect_to(request.referrer || root_path)
   end
