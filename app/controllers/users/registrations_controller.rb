@@ -46,8 +46,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     current_user.standard!
     # find all articles owned by user and marked private
     Wiki.where(user_id: current_user.id).find_each do |wiki|
-      # replace those articles with private == false
-      if wiki.private = "true"
+      # replace those articles with private false
+      if wiki.private?
          wiki.update(private: "false")
       end
     end
