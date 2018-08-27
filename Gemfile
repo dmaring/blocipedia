@@ -55,3 +55,5 @@ source 'https://rubygems.org'
  gem 'figaro', '1.0'
 
  gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+ gem 'redcarpet'

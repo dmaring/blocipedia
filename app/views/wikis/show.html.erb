@@ -6,15 +6,15 @@
           <h3>
             <%= @wiki.title %>
             <% if @wiki.private == true %>
-                <%= image_tag "icons/lock-locked-4x.png" %>
+                <div class="float-right"><%= image_tag "icons/lock-locked-4x.png" %></div>
               <% else %>
-                <%= image_tag "icons/lock-unlocked-4x.png" %>
+                <div class="float-right"><%= image_tag "icons/lock-unlocked-4x.png" %></div>
             <% end %>
-        </h3>
+          </h3>
           <small><%= "Last updated by #{User.getUserByID(@wiki.user_id)}" %></small>
         </div>
         <div class="card-body">
-          <p><%= @wiki.body %></p>
+          <%= sanitize markdown(@wiki.body) %>
         </div>
       </div>
     </div>

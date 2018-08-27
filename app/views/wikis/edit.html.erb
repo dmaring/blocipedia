@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-sm-center d-flex">
-    <div class="col-md-5">
+    <div class="col-md-6">
       <div class="card">
         <div class="card-header">
           <h3>edit</h3>
@@ -8,7 +8,7 @@
           <%= render partial: 'form', locals: { wiki: @wiki, current_user: current_user } %>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-6">
       <div class="card h-100">
         <div class="card-header">
           <h3>preview</h3>
@@ -16,7 +16,7 @@
 
           <div class="card-body">
           <h4 class="card-title"><%= @wiki.title %></h4>
-            <p><%= @wiki.body %></p>
+            <%= sanitize markdown(@wiki.body) %>
           </div>
         </div>
       </div>

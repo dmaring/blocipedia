@@ -12,7 +12,7 @@
             <tr>
               <td colspan="2"><%= link_to wiki.title, wiki_path(wiki.id) %>
                 <% if wiki.private == true %>
-                    <%= image_tag "icons/lock-locked-2x.png" %>
+                    <div class="float-right"><%= image_tag "icons/lock-locked-2x.png" %></div>
                 <% end %>
               </td>
               <td><%= link_to "Edit", edit_wiki_path(wiki.id), class: "card-link" %></td>
