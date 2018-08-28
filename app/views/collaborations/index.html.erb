@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row justify-content-sm-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h3>Collaborators for <%= @wiki.title %></h3>
+        </div>
+        <div class="card-body">
+        <table class="table table-hover table-bordered">
+          <tbody>
+            <% @collaborations.each do |collaborator| %>
+            <tr>
+              <td colspan="2"><%= collaborator.user_id %> </td>
+              <td><%= link_to "Delete", collaboration_path(collaborator), method: :delete, class: "card-link", data: { confirm: 'Are you sure you want to remove this collaborator from this Wiki?' } %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-3">
+      <%= form_for @collaboration do |f| %>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: "form-control", autocomplete: "off" %>
+        </div>
+        <%= f.submit "Save", class: "btn btn-primary btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>

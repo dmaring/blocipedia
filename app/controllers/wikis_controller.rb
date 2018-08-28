@@ -18,8 +18,6 @@ class WikisController < ApplicationController
 
   def create
     @wiki = Wiki.new
-    # markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-    # params[:wiki][:body] = markdown.render(params[:wiki][:body])
     @wiki.assign_attributes(wiki_params)
     @wiki.user_id = current_user.id
 
@@ -43,8 +41,6 @@ class WikisController < ApplicationController
 
   def update
     @wiki = Wiki.find(params[:id])
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
-    params[:wiki][:body] = markdown.render(params[:wiki][:body])
     # @wiki.title = params[:wiki][:title]
     # @wiki.body = params[:wiki][:body]
     # @wiki.private = params[:wiki][:private]

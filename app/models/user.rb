@@ -10,6 +10,9 @@ class User < ApplicationRecord
 
   enum role: [:standard, :premium, :admin]
 
+  has_many :collaborations
+  has_many :wikis, through: :collaborations
+
   def self.getUserByID(user_id)
     User.find(user_id).email
   end

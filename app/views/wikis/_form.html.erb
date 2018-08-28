@@ -15,6 +15,12 @@
     </div>
 
     <%= f.submit "Save", class: "btn btn-primary btn-lg" %>
-  <% end %>
+
+    <% if @wiki.private? && @wiki.collaborations %>
+      <%= button_to "Edit Colaborators", collaborations_path, id: "@wiki.id", method: :get, class: "btn btn-secondary btn-lg" %>
+    <% elsif @wiki.private? %>
+      <%= button_to "Add Colaborators", new_collaboration_path, class: "btn btn-secondary btn-lg" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
